@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    @import url('https://fonts.cdnfonts.com/css/pumpkin-story');
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      background: #ffb02d;
+    }
+    #textDiv {
+      text-align: center;
+      font-size: 4em;
+      width: 12em;
+      position: absolute;
+      right: 0;
+    }
+    .text {
+      text-align: center;
+      font-size: 1.2em;
+    }
+		#Top {
+      font-family: 'Roboto Condensed';
+      font-weight: 800;
+    }
+    #Mid {
+      font-family: 'Pumpkin Story', sans-serif;
+      font-size: 2.5em;
+			line-height: 1em;
+    }
+    #Bot {
+      font-family: 'Roboto Condensed';
+      font-weight: 500;
+      line-height: 1.2em;
+    }
+    .container {
+      display: flex;
+    }
+    #imageDiv > img{
+      height: 23em;
+    }
+    @media (max-width: 1000px) {
+      /* Styles for Tablets */
+      #textDiv {
+        font-size: 3.4em;
+        width: 100%;
+      }
+      #imageDiv {
+        display: none;
+      }
+      .container {
+        display: inline;
+      }
+    }
+    @media (max-width: 50rem) {
+      /* Styles for Smaller Tablets */
+      #textDiv {
+        font-size: 2.8em;
+      }
+    }
+    @media (max-width: 43.75rem) {
+      #textDiv {
+        font-size: 2.5em;
+      }
+    } 
+    @media (max-width: 37.5rem) {
+      /* Styles for Larger Phones */
+      #textDiv {
+        font-size: 1.75em;
+      }
+    }    
+    @media (max-width: 25rem) {
+      /* Styles for mobile phones */
+      #textDiv {
+        font-size: 1.2em;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="imageDiv">
+      <img src="https://cpeyton78910.github.io/BroilerDaysFunRun/chicken.jpg" alt="Chicken Image">
+    </div>
+    <div id="textDiv">
+      <span class="text" id="Top">BROILER-DAIRY DAYS</span><br>
+      <span class="text" id="Mid">FUN RUN</span><br>
+      <span class="text" id="Bot">ARCADIA, WI</span>
+    </div>
+  </div>
+</body>
+</html>
