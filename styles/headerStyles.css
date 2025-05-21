@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.cdnfonts.com/css/pumpkin-story");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  background: #ffb02d;
+}
+
+#textDiv {
+  text-align: center;
+  font-size: 4em;
+  width: 12em;
+  position: absolute;
+  right: 0;
+}
+
+.text {
+  text-align: center;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 900;
+}
+
+#pageTitle {
+  font-size: 2.5em;
+}
+
+#Top {
+  font-weight: 800;
+}
+
+#Mid {
+  font-family: "Pumpkin Story", "Comic Sans MS", sans-serif;
+  font-size: 2.5em;
+  line-height: 1em;
+  font-weight: normal;
+}
+
+#Bot {
+  font-weight: 500;
+  line-height: 1.2em;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+#imageDiv > img {
+  height: 23em;
+}
+
+@media (max-width: 1000px) {
+  #textDiv {
+    font-size: 3.4em;
+    width: 100%;
+  }
+  #imageDiv {
+    display: none;
+  }
+}
+
+@media (max-width: 50rem) {
+  /* Styles for Smaller Tablets */
+  #textDiv {
+    font-size: 2.8em;
+  }
+}
+
+@media (max-width: 43.75rem) {
+  #textDiv {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 37.5rem) {
+  /* Styles for Larger Phones */
+  #textDiv {
+    font-size: 1.75em;
+  }
+}
+
+@media (max-width: 25rem) {
+  /* Styles for mobile phones */
+  #textDiv {
+    font-size: 1.2em;
+  }
+}
