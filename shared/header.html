@@ -20,22 +20,6 @@
       <span class="text" id="pageTitle" style="font-size: 2.5em"></span>
     </div>
   </div>
-  <script>
-    // Get URL parameters
-    const params = new URLSearchParams(window.location.search);
-    const data = params.get('data');
-    const year = params.get('year');
-    const pageTitle = document.getElementById('pageTitle');
-    const pageLogo = document.getElementById('pageLogo');
-
-    // Updates based of data/year status
-    if (data) {
-      pageTitle.innerText = data;
-      pageLogo.style.display = "none";
-    } else if (year) {
-      pageTitle.innerText = `${year} Results`;
-      pageLogo.style.display = "none";
-    }
-  </script>
+  <script src="../scripts/headerScript.js"></script>
 </body>
 </html>
