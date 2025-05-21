@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../styles/tableStyles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+  <div class="content">
+    <label for="genderSelect">Select Gender:</label>
+    <select id="genderSelect">
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+    </select>
+    <label for="ageGroupSelect">Select Division:</label>
+    <select id="ageGroupSelect">
+      <option value="Overall">Overall</option>
+      <option value=0>14 & Under</option>
+      <option value=1>15-18</option>
+      <option value=2>19-29</option>
+      <option value=3>30-39</option>
+      <option value=4>40-49</option>
+      <option value=5>50-59</option>
+      <option value=6>60+</option>
+    </select>
+    <table id="resultsTable"></table>
+  </div>
+  <script src="../scripts/tableScript.js"></script>
+</body>
+</html>
