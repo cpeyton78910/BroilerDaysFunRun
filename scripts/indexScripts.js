@@ -6,7 +6,7 @@ function pageLoad() {
   const urlParams = new URLSearchParams(window.location.search),
         year = urlParams.get("year"),
         resultsIframe = document.getElementById('resultsIframe'),
-        resultsFilePath = `years/${year}/data/results.json`;
+        resultsFilePath = `data/${year}/results.json`;
 
   document.getElementById('headerIframe').src = `shared/header.html?year=${year}`;
 
