@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: Roboto, Helvetica, sans-serif;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+label, select {
+  font-size: 1.125em;
+}
+
+select {
+  margin-right: 1em;
+  width: 6.8em;
+}
+
+.content {
+  margin: 0 auto;
+  margin-top: 1rem;
+  min-width: 40em;
+  overflow-x: auto;
+  width: fit-content;
+}
+
+table {
+  margin-top: 0.75em;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
+  min-width: 3em;
+  text-align: center;
+}
+
+th {
+  padding: 0.5em;
+  font-size: 1.125em;
+  border-bottom: 0.15em solid black;
+}
+
+td {
+  min-width: max-content;
+  white-space: nowrap;
+}
+
+.nameCell {
+  width: 50%;
+  text-align: left;
+}
+
+@media (max-width: 48rem) {
+  body {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  body {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 32rem) {
+  body {
+    font-size: 0.6rem;
+  }
+}
