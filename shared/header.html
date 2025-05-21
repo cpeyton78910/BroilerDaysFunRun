@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/headerStyles.css">
+</head>
+<body>
+  <div class="container">
+    <div id="imageDiv">
+      <img src="../assets/chicken.jpg" alt="Chicken Image">
+    </div>
+    <div id="textDiv">
+      <span id="pageLogo">
+        <div class="text" id="Top">Broiler-Dairy Days</div>
+        <div class="text" id="Mid">Fun Run</div>
+        <div class="text" id="Bot">Arcadia, WI</div>
+      </span>
+
+      <span class="text" id="pageTitle" style="font-size: 2.5em"></span>
+    </div>
+  </div>
+  <script>
+    // Get URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const data = params.get('data');
+    const year = params.get('year');
+    const pageTitle = document.getElementById('pageTitle');
+    const pageLogo = document.getElementById('pageLogo');
+
+    // Updates based of data/year status
+    if (data) {
+      pageTitle.innerText = data;
+      pageLogo.style.display = "none";
+    } else if (year) {
+      pageTitle.innerText = `${year} Results`;
+      pageLogo.style.display = "none";
+    }
+  </script>
+</body>
+</html>
