@@ -37,7 +37,7 @@ th, td {
 }
 
 th {
-  padding: 1em;
+  padding: 0.5em 1em;
   font-size: 1.125em;
   border-bottom: 0.15em solid black;
 }
