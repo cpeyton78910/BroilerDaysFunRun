@@ -11,8 +11,8 @@ generateAwardTable();
 
 function generateAwardTable() {
   Promise.all([
-    fetch(`../data/${year}/registration.csv`).then(response => response.text()),
-    fetch(`../data/${year}/results.json`).then(response => response.json())
+    fetch(`data/${year}/registration.csv`).then(response => response.text()),
+    fetch(`data/${year}/results.json`).then(response => response.json())
   ]).then(([csvData, jsonData]) => {
     parsedCSV = Papa.parse(csvData, { header: true }).data.filter(row => row.ID);
     results = jsonData.rawtimes;
