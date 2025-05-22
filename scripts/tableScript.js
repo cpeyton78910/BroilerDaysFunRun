@@ -214,7 +214,7 @@ window.addEventListener('load', adjustSearchBar);
 function adjustSearchBar () {
   const dropdownHeight = document.getElementById('genderSelect').clientHeight;
 
-  searchInput.style.height = `${dropdownHeight-3}px`;
+  searchInput.style.height = `${dropdownHeight-2}px`;
   searchInput.style.paddingLeft = `${dropdownHeight+2}px`;
   searchInput.style.backgroundSize = `${dropdownHeight-4}px`;
 
