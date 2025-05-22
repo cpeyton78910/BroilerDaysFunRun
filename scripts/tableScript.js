@@ -5,10 +5,10 @@ const distance = 3.10686,
       urlParams = new URLSearchParams(window.location.search),
       year = urlParams.get("year");
 
-let overallCompiledTable = [],
-    overall = true,
+let overall = true,
     ageGroup = "Overall",
     results = {},
+    overallCompiledTable = [],
     parsedCSV;
 
 const calculatePace = (time) => {
@@ -111,6 +111,7 @@ function updateTable() {
   headers.forEach(header => {
 
     const th = document.createElement('th');
+    if (header == 'Name') th.classList.add('nameHeader');
     th.textContent = header;
     headerRow.appendChild(th);
 
@@ -118,47 +119,103 @@ function updateTable() {
 
   table.appendChild(headerRow);
 
-  if (filteredResults.length === 0) {
+  filterWithSearch();
 
-    const newRow = table.insertRow();
-    const cell = newRow.insertCell();
-    cell.colSpan = headers.length;
-    cell.textContent = 'No results found for the selected category.';
-    cell.style.textAlign = 'center';
+  filteredResults.forEach(row => {
+    const timeIndex = results.ids.indexOf(row.ID);
+    if (timeIndex !== -1) {
 
-  } else {
+      const newRow = table.insertRow();
 
-    filteredResults.forEach(row => {
-      const timeIndex = results.ids.indexOf(row.ID);
-      if (timeIndex !== -1) {
+      if (overall) {
 
-        const newRow = table.insertRow();
+        newRow.insertCell().textContent = row.overallPlace;
+        newRow.insertCell().textContent = row.divisionPlace;
+        newRow.insertCell().textContent = row.division;
 
-        if (overall) {
+      } else {
 
-          newRow.insertCell().textContent = row.overallPlace;
-          newRow.insertCell().textContent = row.divisionPlace;
-          newRow.insertCell().textContent = row.division;
-
-        } else {
-
-          newRow.insertCell().textContent = row.divisionPlace;
-          newRow.insertCell().textContent = row.overallPlace;
-
-        }
-
-        newRow.insertCell().textContent = row.ID;
-        const nameCell = newRow.insertCell();
-        nameCell.classList.add('nameCell');
-        nameCell.textContent = `${row['First name']} ${row['Last name']}`;
-        newRow.insertCell().textContent = results.times[timeIndex];
-        newRow.insertCell().textContent = calculatePace(results.times[timeIndex]);
-        newRow.insertCell().textContent = row.Age;
+        newRow.insertCell().textContent = row.divisionPlace;
+        newRow.insertCell().textContent = row.overallPlace;
 
       }
 
-    });
+      newRow.insertCell().textContent = row.ID;
+      const nameCell = newRow.insertCell();
+      nameCell.classList.add('nameCell');
+      nameCell.textContent = `${row['First name']} ${row['Last name']}`;
+      newRow.insertCell().textContent = results.times[timeIndex];
+      newRow.insertCell().textContent = calculatePace(results.times[timeIndex]);
+      newRow.insertCell().textContent = row.Age;
+
+    }
+    filterWithSearch();
+  });
+
+}
+
+const searchInput = document.getElementById("searchInput");
+
+function filterWithSearch() {
+  let i, j, txtValue, hasResults = false;
+  const filter = searchInput.value.toUpperCase(),
+        table = document.getElementById("resultsTable"),
+        tr = table.getElementsByTagName("tr"),
+        headers = table.getElementsByTagName("th").length;
+
+  // Remove previous "No results found" row if exists
+  const existingMessageRow = document.getElementById("noResultsRow");
+  if (existingMessageRow) table.removeChild(existingMessageRow);
+
+  // Loop through rows
+  for (i = 1; i < tr.length; i++) {
+    const td = tr[i].getElementsByTagName("td");
+    let rowMatches = false;
+
+    // Loop through all columns in the row
+    for (j = 0; j < td.length; j++) {
+      txtValue = td[j].textContent || td[j].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+
+        rowMatches = true;
+
+        break;
+      }
+
+    }
+
+    // Show or hide row based on search match
+    tr[i].style.display = rowMatches ? "" : "none";
+    if (rowMatches) hasResults = true;
 
   }
+
+  // If no results, add the row
+  if (!hasResults && !document.getElementById("noResultsRow")) {
+
+    const noResultsRow = document.createElement("tr");
+    noResultsRow.id = "noResultsRow";
+    
+    const noResultsCell = document.createElement("td");
+    noResultsCell.colSpan = headers;
+    noResultsCell.textContent = "No results found.";
+    noResultsCell.style.textAlign = "center";
+    
+    noResultsRow.appendChild(noResultsCell);
+    table.appendChild(noResultsRow);
+
+  }
+
+}
+
+window.addEventListener('resize', adjustSearchBar);
+window.addEventListener('load', adjustSearchBar);
+
+function adjustSearchBar () {
+  const dropdownHeight = document.getElementById('genderSelect').clientHeight;
+
+  searchInput.style.height = `${dropdownHeight-3}px`;
+  searchInput.style.paddingLeft = `${dropdownHeight+2}px`;
+  searchInput.style.backgroundSize = `${dropdownHeight-4}px`;
 
 }
