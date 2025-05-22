@@ -31,6 +31,5 @@ function pageLoad() {
 function adjustTablePosition() {
   
   document.getElementById("resultsIframe").style.top = `${document.getElementById("header").offsetHeight}px`;
-  console.log(`${document.getElementById("header").style.height}`);
 
 }
