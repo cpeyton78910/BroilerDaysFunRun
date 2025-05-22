@@ -6,27 +6,74 @@ body {
   margin: 0 auto;
 }
 
-label, select {
+.navBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+label {
+  padding-top: 0.35em;
+}
+label, select, input {
   font-size: 1.125em;
+  height: 16px;
+  height: 1.5em;
+  white-space: nowrap;
+}
+
+.navBar span {
+  white-space: nowrap;
+}
+
+.search {
+  flex-grow: 1;
+  text-align: right;
+}
+
+#searchInput {
+  line-height: 1;
+  width: 80%;
+  max-width: 16em;
+  font-size: 0.9em;
+  background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5)), url(../assets/searchIcon.svg);
+  background-position: 2px;
+  /* padding: 0 0 0 1.5em; */
+  /* background-size: calc(1.5em - 5px); */
+  background-repeat: no-repeat;
+  filter: grayscale(100%);
+}
+
+#searchInput::placeholder {
+  color: #333;
 }
 
 select {
-  margin-right: 1em;
-  width: 6.8em;
-  cursor: default;
+  margin-right: 0.75em;
+  width: 6.5em;
+}
+
+select, input {
+  border-radius: 0.25em;
+  border: 1px solid rgba(20, 20, 20, 0.5);
 }
 
 .content {
   margin: 0 auto;
   margin-top: 1rem;
   min-width: 40em;
-  overflow-x: auto;
-  width: fit-content;
+  overflow-x: hidden;
+  width: 85%;
+  max-width: 75rem
 }
 
 table {
   margin-top: 0.75em;
   border-collapse: collapse;
+  width: 100%;
 }
 
 th, td {
@@ -46,13 +93,18 @@ td {
   min-width: max-content;
   white-space: nowrap;
 }
-
+.nameHeader {
+  width: 40%;
+}
 .nameCell {
   padding-left: 0.75em;
-  width: 40%;
   text-align: left;
 }
-
+@media (max-width: 64rem) {
+  .content {
+    min-width: fit-content;
+  }
+}
 @media (max-width: 48rem) {
   body {
     font-size: 0.9rem;
@@ -63,10 +115,21 @@ td {
   body {
     font-size: 0.7rem;
   }
+  select {
+    width: 7em;
+  }
 }
 
 @media (max-width: 32rem) {
   body {
     font-size: 0.6rem;
+  }
+  .nameHeader {
+    width: 25%;
+  }
+  .content {
+    overflow-x: auto;
+    /* min-width: fit-content; */
+    width: 28rem;
   }
 }
