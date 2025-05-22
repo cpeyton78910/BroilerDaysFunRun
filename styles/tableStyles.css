@@ -13,15 +13,16 @@ body {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 20px;
+  font-size: 1.125em;
 }
 
 label {
   padding-top: 0.35em;
 }
+
 label, select, input {
-  font-size: 1.125em;
   height: 16px;
-  height: 1.5em;
+  height: 1.8em;
   white-space: nowrap;
 }
 
@@ -36,13 +37,11 @@ label, select, input {
 
 #searchInput {
   line-height: 1;
-  width: 80%;
-  max-width: 16em;
-  font-size: 0.9em;
+  width: 85%;
+  max-width: 20em;
+  font-size: 0.8em;
   background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5)), url(../assets/searchIcon.svg);
   background-position: 2px;
-  /* padding: 0 0 0 1.5em; */
-  /* background-size: calc(1.5em - 5px); */
   background-repeat: no-repeat;
   filter: grayscale(100%);
 }
@@ -52,7 +51,7 @@ label, select, input {
 }
 
 select {
-  margin-right: 0.75em;
+  margin-right: 0.5em;
   width: 6.5em;
 }
 
@@ -65,9 +64,10 @@ select, input {
   margin: 0 auto;
   margin-top: 1rem;
   min-width: 40em;
-  overflow-x: hidden;
+  overflow-x: auto;
   width: 85%;
-  max-width: 75rem
+  max-width: 75rem;
+  overflow-x: hidden;
 }
 
 table {
@@ -93,43 +93,64 @@ td {
   min-width: max-content;
   white-space: nowrap;
 }
+
 .nameHeader {
   width: 40%;
 }
+
 .nameCell {
   padding-left: 0.75em;
   text-align: left;
 }
+
 @media (max-width: 64rem) {
+
   .content {
     min-width: fit-content;
   }
+  
 }
+
 @media (max-width: 48rem) {
+
   body {
     font-size: 0.9rem;
   }
+
+  .navBar {
+    font-size: 1em;
+  }
+
 }
 
 @media (max-width: 40rem) {
+
   body {
     font-size: 0.7rem;
   }
+
   select {
     width: 7em;
   }
+
+  .content {
+    width: 35rem;
+  }
+
 }
 
 @media (max-width: 32rem) {
+
   body {
     font-size: 0.6rem;
   }
+
   .nameHeader {
     width: 25%;
   }
+
   .content {
-    overflow-x: auto;
-    /* min-width: fit-content; */
-    width: 28rem;
+    width: 32rem;
   }
+
 }
