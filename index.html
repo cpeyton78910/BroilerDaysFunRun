@@ -4,14 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/indexStyles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
   <section id="header">
     <iframe id="headerIframe"></iframe>
   </section>
   <section class="content">
-    <iframe id="resultsIframe"></iframe>
+    <div id="resultsContainer">
+      <div class="navBar">
+        <span>
+          <label for="genderSelect">Select Gender:</label>
+          <select id="genderSelect">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </span>
+        <span>
+          <label for="ageGroupSelect">Select Division:</label>
+          <select id="ageGroupSelect">
+            <option value="Overall">Overall</option>
+            <option value=0>14 & Under</option>
+            <option value=1>15-18</option>
+            <option value=2>19-29</option>
+            <option value=3>30-39</option>
+            <option value=4>40-49</option>
+            <option value=5>50-59</option>
+            <option value=6>60+</option>
+          </select>
+        </span>
+        <span class="search"><input type="text" id="searchInput" onkeyup="filterWithSearch()" autocomplete="off" placeholder="Search by name, bib number, etc..."></span>
+      </div>
+      <table id="resultsTable"></table>
+    </div>
+
+    <section id="noResultsContainer">
+      <br>
+      <h1>Will Be Available Following the Race</h1>
+    </section>
+
   </section>
+
   <script src="scripts/indexScript.js"></script>
+  <script src="scripts/tableScript.js"></script>
 </body>
 </html>
