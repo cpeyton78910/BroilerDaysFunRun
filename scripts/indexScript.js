@@ -1,11 +1,11 @@
-window.addEventListener('resize', adjustTablePosition);
 window.addEventListener('load', pageLoad);
 
 function pageLoad() {
 
   const urlParams = new URLSearchParams(window.location.search),
         year = urlParams.get("year"),
-        resultsIframe = document.getElementById('resultsIframe'),
+        resultsContainer = document.getElementById('resultsContainer'),
+        noResultsContainer = document.getElementById('noResultsContainer'),
         resultsFilePath = `data/${year}/results.json`;
 
   document.getElementById('headerIframe').src = `shared/header.html?year=${year}`;
@@ -13,23 +13,19 @@ function pageLoad() {
   fetch(resultsFilePath).then(response => {
     
     if (response.ok) {
-      resultsIframe.src = `shared/resultsTable.html?year=${year}`;
+      resultsContainer.style.display = "block";
+      noResultsContainer.style.display = "none";
     } else {
-      resultsIframe.src = `shared/noResults.html`;
+      resultsContainer.style.display = "none";
+      noResultsContainer.style.display = "block";
     }
 
   }).catch(error => {
 
     console.error(`Error checking file: ${resultsFilePath}`, error);
-    resultsIframe.src = `shared/noResults.html`; // Fallback in case of an error
+    resultsContainer.style.display = "none";
+    noResultsContainer.style.display = "block"; // Fallback in case of an error
   
   });
-
-  adjustTablePosition();
-}
-
-function adjustTablePosition() {
-  
-  document.getElementById("resultsIframe").style.top = `${document.getElementById("header").offsetHeight}px`;
 
 }
