@@ -19,11 +19,11 @@ function generateAwardTable() {
     overallCompiledTable = [];
 
     const divisions = [
-      'Overall', '14 & Under', '15-18', '19-29', '30-39', '40-49', '50-59', '60 & Over'
+      'Overall', '13 & Under', '15-18', '19-29', '30-39', '40-49', '50-59', '60 & Over'
     ];
 
-    const divisionMinAge = [0, 0, 15, 19, 30, 40, 50, 60];
-    const divisionMaxAge = [99, 14, 18, 29, 39, 49, 59, 99];
+    const divisionMinAge = [0, 0, 14, 19, 30, 40, 50, 60];
+    const divisionMaxAge = [99, 13, 18, 29, 39, 49, 59, 99];
 
     divisions.forEach((division, index) => {
       let maleResults = parsedCSV.filter(row => row.Gender.toLowerCase() === 'male' && row.Age >= divisionMinAge[index] && row.Age <= divisionMaxAge[index]);
