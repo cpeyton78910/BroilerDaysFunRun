@@ -1,7 +1,7 @@
 const distance = 3.10685596,
-      divisions = ['0-14', '15-18', '19-29', '30-39', '40-49', '50-59', '60+'],
-      divisionMinAge = [0, 15, 19, 30, 40, 50, 60],
-      divisionMaxAge = [14, 18, 29, 39, 49, 59, 99],
+      divisions = ['0-13', '15-18', '19-29', '30-39', '40-49', '50-59', '60+'],
+      divisionMinAge = [0, 14, 19, 30, 40, 50, 60],
+      divisionMaxAge = [13, 18, 29, 39, 49, 59, 99],
       urlParams = new URLSearchParams(window.location.search),
       year = urlParams.get("year");
 
