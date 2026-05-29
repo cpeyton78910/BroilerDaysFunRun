@@ -52,7 +52,6 @@ label, select, input {
   background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5)), url(../assets/searchIcon.svg);
   background-position: 2px;
   background-repeat: no-repeat;
-  filter: grayscale(100%);
 }
 
 #searchInput::placeholder {
